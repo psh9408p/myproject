@@ -1,7 +1,7 @@
 # 가상 환경
-.venv/
+venv/
+*.pyc
 __pycache__/
-
 # 환경 변수 파일
 .env
 
