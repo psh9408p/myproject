@@ -4,10 +4,12 @@ import time
 import os
 
 from dotenv import load_dotenv
+api_key = st.secrets["openai"]["API_KEY"]
+assistant_id = st.secrets["openai"]["ASSISTANT_ID"]
 
 load_dotenv()
-api_key = os.getenv('API_KEY')
-assistant_id = os.getenv('ASSISTANT_ID')
+# api_key = os.getenv('API_KEY')
+# assistant_id = os.getenv('ASSISTANT_ID')
 
 client = OpenAI(api_key=api_key)
 
