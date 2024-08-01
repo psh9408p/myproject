@@ -1,4 +1,4 @@
-import openai
+from openai import OpenAI
 import streamlit as st
 import time
 import os
@@ -13,7 +13,7 @@ load_dotenv()
 # api_key = os.getenv('API_KEY')
 # assistant_id = os.getenv('ASSISTANT_ID')
 
-client = openai(api_key=api_key)
+client = OpenAI(api_key=api_key)
 
 # thread_id = "thread_UfwfQO5f0mIlVLMheDLYKR9u"
 with st.sidebar:
