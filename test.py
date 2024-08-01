@@ -6,7 +6,6 @@ import os
 from dotenv import load_dotenv
 api_key1 = st.secrets["openai"]["api_key"]
 api_key = api_key1
-print(api_key1,api_key)
 
 assistant_id = st.secrets["openai"]["assistant_id"]
 
