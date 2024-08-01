@@ -22,3 +22,4 @@ pyvenv.cfg
 
 # 기타 불필요한 파일
 .DS_Store
+.streamlit/secrets.toml
