@@ -38,7 +38,7 @@ def assistant_creator():
         name="web2x Helper",
         tools=[{"type": "file_search"}],
         tool_resources={"file_search": {"vector_store_ids": [vector_store.id]}},
-        model="gpt-4o"
+        model="gpt-3.5-turbo"
       # gpt-4o	
         
     )
