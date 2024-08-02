@@ -8,13 +8,12 @@ from dotenv import load_dotenv
 # api_key = api_key1
 # assistant_id = st.secrets["openai"]["assistant_id"]
 load_dotenv()
-api_key = os.getenv('API_KEY')
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 assistant_id = os.getenv('ASSISTANT_ID')
 try:
     api_key1 = st.secrets["openai"]["api_key"]
-    client = OpenAI(api_key=api_key)
+    client = OpenAI(api_key=OPENAI_API_KEY)
 
-    st.write(api_key1)
 except KeyError as e:
     st.error(f"KeyError: {e}")
 # thread_id = "thread_UfwfQO5f0mIlVLMheDLYKR9u"
