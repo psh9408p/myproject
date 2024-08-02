@@ -13,16 +13,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Streamlit Cloud에서는 st.secrets 사용, 로컬에서는 .env 파일 사용
-if 'STREAMLIT_RUNTIME' in os.environ:
-    OPENAI_API_KEY = st.secrets["openai"]["api_key"]
-    ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
-else:
-    load_dotenv()
-    OPENAI_API_KEY = st.secrets["openai"]["api_key"]
-    ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
-    # OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-    # ASSISTANT_ID = os.getenv('ASSISTANT_ID')
+# if 'STREAMLIT_RUNTIME' in os.environ:
+#     OPENAI_API_KEY = st.secrets["openai"]["api_key"]
+#     ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
+# else:
+#     load_dotenv()
+#     OPENAI_API_KEY = st.secrets["openai"]["api_key"]
+#     ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
+#     # OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+#     # ASSISTANT_ID = os.getenv('ASSISTANT_ID')
 
+OPENAI_API_KEY = st.secrets["openai"]["api_key"]
+ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
 # API 키 확인
 if not OPENAI_API_KEY:
     st.error("OpenAI API key is not set. Please set it in your environment variables or Streamlit secrets.")
