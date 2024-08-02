@@ -24,7 +24,7 @@ load_dotenv()
 #     # ASSISTANT_ID = os.getenv('ASSISTANT_ID')
 
 OPENAI_API_KEY = st.secrets["openai"]["api_key"]
-ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
+assistant_id = st.secrets["openai"]["assistant_id"]
 # API 키 확인
 if not OPENAI_API_KEY:
     st.error("OpenAI API key is not set. Please set it in your environment variables or Streamlit secrets.")
