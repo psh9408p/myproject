@@ -10,9 +10,13 @@ from dotenv import load_dotenv
 load_dotenv()
 api_key = os.getenv('API_KEY')
 assistant_id = os.getenv('ASSISTANT_ID')
+try:
+    api_key1 = st.secrets["openai"]["api_key"]
+    client = OpenAI(api_key=api_key)
 
-client = OpenAI(api_key=api_key)
-
+    st.write(api_key1)
+except KeyError as e:
+    st.error(f"KeyError: {e}")
 # thread_id = "thread_UfwfQO5f0mIlVLMheDLYKR9u"
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password",value=api_key)
@@ -30,7 +34,7 @@ with st.sidebar:
 st.title("💬 TEST: WEB2X Q&A ChatBot" )
 st.caption("🚀 A Streamlit chatbot powered by OpenAI")
 if "messages" not in st.session_state:
-    st.session_state["messages"] = [{"role": "assistant", "content": "무엇이든 물어보세용 : WEB2X"}]
+    st.session_state["messages"] = [{"role": "assistant", "content": "무엇이든 물어보세요 : WEB2X"}]
 
 for msg in st.session_state.messages:
     st.chat_message(msg["role"]).write(msg["content"])
