@@ -4,18 +4,33 @@ import time
 import os
 
 from dotenv import load_dotenv
+
+
+
 # api_key1 = st.secrets["openai"]["api_key"]
 # api_key = api_key1
 # assistant_id = st.secrets["openai"]["assistant_id"]
 load_dotenv()
-OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-assistant_id = os.getenv('ASSISTANT_ID')
-try:
-    api_key1 = st.secrets["openai"]["api_key"]
-    client = OpenAI(api_key=OPENAI_API_KEY)
 
-except KeyError as e:
-    st.error(f"KeyError: {e}")
+# Streamlit Cloud에서는 st.secrets 사용, 로컬에서는 .env 파일 사용
+if 'STREAMLIT_RUNTIME' in os.environ:
+    OPENAI_API_KEY = st.secrets["openai"]["api_key"]
+    ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
+else:
+    load_dotenv()
+    OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+    ASSISTANT_ID = os.getenv('ASSISTANT_ID')
+
+# API 키 확인
+if not OPENAI_API_KEY:
+    st.error("OpenAI API key is not set. Please set it in your environment variables or Streamlit secrets.")
+    st.stop()
+
+# OpenAI 클라이언트 생성
+client = OpenAI(api_key=OPENAI_API_KEY)
+# OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+# assistant_id = os.getenv('ASSISTANT_ID')
+
 # thread_id = "thread_UfwfQO5f0mIlVLMheDLYKR9u"
 with st.sidebar:
     openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password",value=api_key)
