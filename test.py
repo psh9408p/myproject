@@ -21,10 +21,23 @@ load_dotenv()
 #     OPENAI_API_KEY = st.secrets["openai"]["api_key"]
 #     ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
 #     # OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+ASSISTANT_ID = st.secrets.get("openai", {}).get("assistant_id",os.getenv('ASSISTANT_ID'))
 
 OPENAI_API_KEY = st.secrets["openai"]["api_key"]
 # ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
-ASSISTANT_ID =  st.secrets["openai"]["assistant_id"]
+# ASSISTANT_ID =  st.secrets["openai"]["assistant_id"]
+
+try:
+    OPENAI_API_KEY = st.secrets["openai"]["api_key"]
+    st.write("API Key loaded successfully")
+except KeyError:
+    st.write("API Key not found in secrets")
+
+try:
+    ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
+    st.write("Assistant ID loaded successfully")
+except KeyError:
+    st.write("Assistant ID not found in secrets")
 
 if ASSISTANT_ID is None:
     st.error("Assistant ID is not set in secrets.toml")
