@@ -24,8 +24,8 @@ load_dotenv()
 #     # ASSISTANT_ID = os.getenv('ASSISTANT_ID')
 
 OPENAI_API_KEY = st.secrets["openai"]["api_key"]
-ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
-# ASSISTANT_ID = st.secrets.get("openai", {}).get("assistant_id", "232323")
+# ASSISTANT_ID = st.secrets["openai"]["assistant_id"]
+ASSISTANT_ID = st.secrets.get("openai", {}).get("assistant_id", "assistant_id")
 
 st.write(ASSISTANT_ID)
 # API 키 확인
