@@ -33,7 +33,7 @@ client = OpenAI(api_key=OPENAI_API_KEY)
 
 # thread_id = "thread_UfwfQO5f0mIlVLMheDLYKR9u"
 with st.sidebar:
-    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password",value=api_key)
+    openai_api_key = st.text_input("OpenAI API Key", key="chatbot_api_key", type="password",value=OPENAI_API_KEY)
     "[Get an OpenAI API key](https://platform.openai.com/account/api-keys)"
     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/Chatbot.py)"
     # "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
